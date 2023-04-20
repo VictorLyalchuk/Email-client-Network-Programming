@@ -1,0 +1,181 @@
+﻿<Window x:Class="MailClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MailClient"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="650" Height="650" MinWidth="500" Width="500">
+    <Window.Resources>
+        <BitmapImage x:Key="MyImageSource" UriSource="Image/Mail7.png" />
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignFlatLightButton}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="Background" Value="CornflowerBlue"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF282828"></Setter>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Trigger>
+                <Trigger Property ="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#FF282828"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="LabelButton" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignFlatLightButton}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="Background" Value="#FF282828"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+        <Style x:Key="RedButton" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignFlatLightButton}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="Background" Value="Crimson"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF282828"></Setter>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Trigger>
+                <Trigger Property ="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#FF282828"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignButtonTextBlock}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style x:Name="BorderBlue" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="CornflowerBlue"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="CornerRadius" Value="5"></Setter>
+        </Style>
+    </Window.Resources>
+    <ScrollViewer>
+        <DockPanel>
+            <Border >
+                <Border Background="#212429" x:Name="MainBorder">
+                    <DockPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition MinWidth="145" MaxWidth="145"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0" Grid.ColumnSpan="7" MaxHeight="150">
+                                    <Border Grid.Column="0" Grid.ColumnSpan="7" Background="#212429" x:Name="ImageBorder">
+                                        <Border Grid.Column="0" Grid.ColumnSpan="7" >
+                                            <Image Grid.Column="0" Grid.ColumnSpan="7" Margin="5" Source= "{StaticResource MyImageSource}"></Image>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                            </Grid>
+                        </DockPanel>
+
+                        <Border Grid.Column="0" Grid.Row="1" >
+                            <Border Background="#212429" Grid.Column="0" Grid.Row="1" Name ="BottomBorder">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition MaxHeight="60" MinHeight="60"></RowDefinition>
+                                        <RowDefinition MaxHeight="60" MinHeight="60"></RowDefinition>
+                                        <RowDefinition MaxHeight="100" MinHeight="100"></RowDefinition>
+                                        <RowDefinition ></RowDefinition>
+                                        <RowDefinition MaxHeight="70" MinHeight="70"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition MinWidth="215" MaxWidth="215"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="1" Grid.Row="0" MinWidth="205" MaxWidth="205">
+                                        <Border Grid.Column="1" Grid.Row="0" Background="#212429" x:Name="LoginBoxBorder" MinWidth="195" MaxWidth="195">
+                                            <TextBox Grid.Column="1" Grid.Row="0" Name="LoginTextBox" materialDesign:HintAssist.Hint="Enter your login" materialDesign:TextFieldAssist.HasClearButton="True" MinWidth="185" MaxWidth="185" FontSize="12"></TextBox>
+                                        </Border>
+                                    </Border>
+                                    <Border Grid.Column="1" Grid.Row="1" MinWidth="205" MaxWidth="205">
+                                        <Border Grid.Column="1" Grid.Row="1" Background="#212429" x:Name="PasswordBoxBorder" MinWidth="195" MaxWidth="195">
+                                            <PasswordBox Grid.Column="1" Grid.Row="1" Name="PasswordBox" VerticalContentAlignment="Center" Margin="5" Padding="5" FontSize="12" materialDesign:HintAssist.Hint="Enter your password" materialDesign:TextFieldAssist.HasClearButton="True" MinWidth="185" MaxWidth="185"></PasswordBox>
+                                        </Border>
+                                    </Border>
+                                    <Border Grid.Column="1" Grid.Row="2" MinWidth="205" MaxWidth="205" MaxHeight="90" MinHeight="90" >
+                                        <Border Grid.Column="1" Grid.Row="2" Background="#212429" x:Name="ButtonBorder" MinWidth="195" MaxWidth="195" MaxHeight="80" MinHeight="80">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition MinHeight="40" MaxHeight="40"></RowDefinition>
+                                                    <RowDefinition MinHeight="40" MaxHeight="40"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition ></ColumnDefinition>
+                                                    <ColumnDefinition ></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Button Grid.Column="0" Grid.Row="0" Click="Enter_Button_Click" Margin="5,5,2.5,2.5" >Enter</Button>
+                                                <Button Grid.Column="1" Grid.Row="0" Click="Info_Button_Click" Margin="2.5,5,5,2.5">Server Info</Button>
+                                                <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource RedButton}" Click="Exit_Button_Click" MaxWidth="165" Margin="5,2.5,2.5,5">Exit</Button>
+                                                <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource RedButton}" Click="Button_Click" MaxWidth="165" Margin="2.5,2.5,5,5">Learn more</Button>
+                                            </Grid>
+                                        </Border>
+                                    </Border>
+                                    <Border Grid.Column="1" Grid.Row="5" MinWidth="155" MaxWidth="155">
+                                        <Border Grid.Column="1" Grid.Row="5" Background="#212429" x:Name="ThemesBorder" MinWidth="145" MaxWidth="145">
+                                            <materialDesign:ColorZone Mode="PrimaryLight" Grid.Column="3" Grid.Row="5" Background="CornflowerBlue" CornerRadius="5" Padding="5" Margin="5" MinWidth="135" MaxWidth="135">
+                                                <StackPanel Orientation="Horizontal" Margin="2" >
+                                                    <RadioButton Foreground="White" MinWidth="55" MaxWidth="55" FontSize="12"
+                                                     Background="#212429"
+                                                     Margin="4" IsChecked="true" Name="DarkMode" Content="Dark" Checked="DarkMode_Checked"/>
+                                                    <RadioButton Foreground="White" MinWidth="55" MaxWidth="55" FontSize="12"
+                                                     Margin="4" IsChecked="false" Content="Light" Checked="DarkMode_Checked"/>
+                                                </StackPanel>
+                                            </materialDesign:ColorZone>
+                                        </Border>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Border>
+                    </DockPanel>
+                </Border>
+            </Border>
+        </DockPanel>
+    </ScrollViewer>
+</Window>
